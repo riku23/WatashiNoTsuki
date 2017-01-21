@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 41134bc902361d746ad49686cc5e0d4d
-timeCreated: 1485019194
+guid: 16047f2c5c9b56d4f81cf265dcee549b
+timeCreated: 1485024412
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: scalatoure_0
-    21300002: scalatoure_1
-    21300004: scalatoure_2
-    21300006: scalatoure_3
+    21300000: pg idle still_0
+    21300002: pg idle still_1
+    21300004: pg idle still_2
+    21300006: pg idle still_3
+    21300008: pg idle still_4
+    21300010: pg idle still_5
+    21300012: pg idle still_6
+    21300014: pg idle still_7
+    21300016: pg idle still Back_0
+    21300018: pg idle still Back_1
+    21300020: pg idle still Back_6
+    21300022: pg idle still Back_5
+    21300024: pg idle still Back_4
+    21300026: pg idle still Back_5
+    21300028: pg idle still Back_6
+    21300030: pg idle still Back_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,54 +69,80 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scalatoure_0
+      name: pg idle still Back_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 523
-        width: 520
-        height: 476
-      alignment: 9
-      pivot: {x: 0.5838574, y: 0.29916483}
+        x: 116
+        y: 853
+        width: 615
+        height: 543
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: scalatoure_1
+      name: pg idle still Back_1
       rect:
         serializedVersion: 2
-        x: 730
-        y: 506
-        width: 452
-        height: 492
-      alignment: 9
-      pivot: {x: 0.522263, y: 0.32614917}
+        x: 217
+        y: 851
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: scalatoure_2
+      name: pg idle still Back_6
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 522
-        width: 431
-        height: 475
+        x: 764
+        y: 852
+        width: 565
+        height: 529
       alignment: 9
-      pivot: {x: 0.5, y: 0.30580375}
+      pivot: {x: 0.49283567, y: 0.23600852}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: scalatoure_3
+      name: pg idle still Back_5
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 432
-        height: 482
+        x: 1346
+        y: 838
+        width: 527
+        height: 542
       alignment: 9
-      pivot: {x: 0.4922354, y: 0.31906268}
+      pivot: {x: 0.41934997, y: 0.2684798}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pg idle still Back_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 188
+        width: 562
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pg idle still Back_7
+      rect:
+        serializedVersion: 2
+        x: 2162
+        y: 223
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
