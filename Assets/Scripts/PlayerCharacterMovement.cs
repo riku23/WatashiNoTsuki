@@ -60,4 +60,12 @@ public class PlayerCharacterMovement : MonoBehaviour
 		onGroundBoxCollider.enabled = false;
 		inWaterBoxCollider.enabled = true;
 	}
+    /*
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Boat")
+        {
+            this.gameObject.transform.parent = other.gameObject.transform;
+        }
+    }*/
 }
