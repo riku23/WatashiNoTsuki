@@ -27,7 +27,7 @@ public class VictoryScript : MonoBehaviour
 		print(collider.gameObject.CompareTag("Player"));
 		if (isRightPosition && collider.gameObject.CompareTag("Player"))
 		{
-			if (!needsPlatformToWin || collider.gameObject.GetComponent<PlayerCharacterMovement>().isOnGround)
+			if (!needsPlatformToWin || collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnGround)
 			{
 				Victory(collider);
 			}
