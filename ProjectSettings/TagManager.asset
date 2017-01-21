@@ -48,3 +48,6 @@ TagManager:
   - name: Foreground
     uniqueID: 1208336313
     locked: 0
+  - name: Waves
+    uniqueID: 2623476425
+    locked: 0
