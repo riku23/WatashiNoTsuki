@@ -26,8 +26,8 @@ public class BeginDoorScript : MonoBehaviour {
 		leftStart = doorLeft.transform.position;
 		rigthStart = doorRigth.transform.position;
 		z = leftStart.z;
-		leftTarget = new Vector3 (xTarget * -1, 0, z);
-		rigthTarget = new Vector3 (xTarget, 0, z);
+		leftTarget = new Vector3 (xTarget * -1, leftStart.y, z);
+		rigthTarget = new Vector3 (xTarget, leftStart.y, z);
 	}
 	
 	// Update is called once per frame

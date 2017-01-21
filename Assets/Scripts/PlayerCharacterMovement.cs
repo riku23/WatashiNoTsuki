@@ -48,8 +48,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 			canMove = true;
 		}
 		movementDirection = Input.GetAxisRaw("Horizontal");
-		climbDirection = Input.GetAxisRaw("Vertical");
-
+        if (canClimb)
+        {
+            climbDirection = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            climbDirection = 0f;
+        }
 
 	}
 
@@ -137,8 +143,10 @@ public class PlayerCharacterMovement : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Stairs"))
 		{
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
+            canClimb = false;
 			rigidbody2d.gravityScale = originalGravity;
-			canClimb = false;
+			
 		}
 	}
 

@@ -23,7 +23,7 @@ public class NewGameScript : MonoBehaviour {
 	IEnumerator LoadNext()
 	{
 		yield return new WaitForSeconds (doorScript.SetOpen (false));
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene ("Level1-Marco");
 	}
 
 }
