@@ -19,6 +19,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 		}
 	}
 
+	public bool IsOnVictoryPlatform
+	{
+		get
+		{
+			return isOnVictoryPlatform;
+		}
+	}
+
 
 	public bool CanMove
 	{
@@ -42,6 +50,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private Rigidbody2D rigidbody2d;
 	private bool isOnGround;
 	private bool isInWater;
+	private bool isOnVictoryPlatform;
 	private GameObject boat;
 	private bool boated;
 	private bool canMove;
@@ -127,6 +136,18 @@ public class PlayerCharacterMovement : MonoBehaviour
 		inWaterBoxCollider.enabled = true;
 	}
 
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.CompareTag("Victory Platform"))
+		{
+			isOnVictoryPlatform = true;
+		}
+		else
+		{
+			isOnVictoryPlatform = false;
+		}
+	}
+
 	private void OnCollisionStay2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Boat")
@@ -145,6 +166,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 			this.boat = null;
 			this.gameObject.transform.eulerAngles = Vector3.zero;
 		}
+		isOnVictoryPlatform = false;
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -166,5 +188,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 			
 		}
 	}
+
+
 
 }

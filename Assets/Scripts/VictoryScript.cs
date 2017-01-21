@@ -28,26 +28,20 @@ public class VictoryScript : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collider)
 	{
-		if (isRightPosition && collider.gameObject.CompareTag("Player"))
+		if (isRightPosition && collider.gameObject.CompareTag("Player") && collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnVictoryPlatform)
 		{
-			if (!needsPlatformToWin || collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnGround)
-			{
-				Victory(collider);
-			}
+			Victory(collider);
 		}
 	}
 
 	private void Victory(Collider2D collider)
 	{
-		print("Victory!");
-
 		if (!spawnedHearts)
 		{
 			spawnedHearts = true;
 			collider.gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 			gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 		}
-
 		StartCoroutine(LoadNext());
 	}
 

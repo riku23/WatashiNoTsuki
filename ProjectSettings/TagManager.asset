@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boat
   - Stairs
+  - Victory Platform
   layers:
   - Default
   - TransparentFX
@@ -49,9 +50,27 @@ TagManager:
   - name: Foreground
     uniqueID: 1208336313
     locked: 0
-  - name: Waves
+  - name: Stairs
     uniqueID: 2623476425
     locked: 0
-  - name: Door
+  - name: Platforms
     uniqueID: 1593469901
+    locked: 0
+  - name: Moon
+    uniqueID: 741922929
+    locked: 0
+  - name: Player
+    uniqueID: 2483806999
+    locked: 0
+  - name: Waves
+    uniqueID: 1808636337
+    locked: 0
+  - name: Boat
+    uniqueID: 1077929895
+    locked: 0
+  - name: Hearts
+    uniqueID: 3232888167
+    locked: 0
+  - name: Door
+    uniqueID: 2691799193
     locked: 0
