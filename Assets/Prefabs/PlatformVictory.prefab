@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000011612535146}
   m_IsPrefabParent: 1
+--- !u!1 &1000010056297268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010956529812}
+  m_Layer: 8
+  m_Name: Tree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011612535146
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,9 +35,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014273916918}
   - 212: {fileID: 212000013428144656}
-  - 61: {fileID: 61000012688938510}
   - 251: {fileID: 251000010281312278}
   - 114: {fileID: 114000013355855586}
+  - 61: {fileID: 61000011920646124}
   m_Layer: 8
   m_Name: PlatformVictory
   m_TagString: Victory Platform
@@ -30,6 +45,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000010956529812
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010056297268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000014273916918}
+  m_RootOrder: 0
 --- !u!4 &4000014273916918
 Transform:
   m_ObjectHideFlags: 1
@@ -38,12 +66,13 @@ Transform:
   m_GameObject: {fileID: 1000011612535146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000010956529812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000012688938510
+--- !u!61 &61000011920646124
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,9 +83,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 3919f8153c8f0a041adff820fc46b0b1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
-  m_Size: {x: 6, y: 2}
+  m_Size: {x: 5.5, y: 1.1}
 --- !u!114 &114000013355855586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1593469901
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5b7318a5e1d10b46a5849182f40362d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bfd01cfadb65834cbe63da560a91c76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
