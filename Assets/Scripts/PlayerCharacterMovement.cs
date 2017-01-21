@@ -70,6 +70,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		isInWater = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsWater);
 		if (!isInWater)
 		{
+            
 			ActivateGroundCollider();
 			if (canMove)
 			{
@@ -78,6 +79,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		}
 		else
 		{
+            rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
 			canMove = false;
 			ActivateWaterCollider();
 		}
