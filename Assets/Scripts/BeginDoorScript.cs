@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BeginDoorScript : MonoBehaviour {
+public class BeginDoorScript : MonoBehaviour
+{
 
 	// Left and rigth door
 	public GameObject doorLeft, doorRigth;
 	// Stop
-	bool stop = false;
+	// bool stop = false;
 	// Speed
 	public float speed = 2f;
 	// x value of target position
@@ -22,38 +23,44 @@ public class BeginDoorScript : MonoBehaviour {
 	public bool open = true;
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		leftStart = doorLeft.transform.position;
 		rigthStart = doorRigth.transform.position;
 		z = leftStart.z;
-		leftTarget = new Vector3 (xTarget * -1, leftStart.y, z);
-		rigthTarget = new Vector3 (xTarget, leftStart.y, z);
+		leftTarget = new Vector3(xTarget * -1, leftStart.y, z);
+		rigthTarget = new Vector3(xTarget, leftStart.y, z);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		step = Time.deltaTime * speed;
 
-		if (open) {
+		if (open)
+		{
 			// Left door
-			delta = Vector3.MoveTowards (doorLeft.transform.position, leftTarget, step);
+			delta = Vector3.MoveTowards(doorLeft.transform.position, leftTarget, step);
 			doorLeft.transform.position = delta;
 			// Rigth door
-			delta = Vector3.MoveTowards (doorRigth.transform.position, rigthTarget, step);
+			delta = Vector3.MoveTowards(doorRigth.transform.position, rigthTarget, step);
 			doorRigth.transform.position = delta;
-		} else {
+		}
+		else
+		{
 			// Left door
-			delta = Vector3.MoveTowards (doorLeft.transform.position, leftStart, step);
+			delta = Vector3.MoveTowards(doorLeft.transform.position, leftStart, step);
 			doorLeft.transform.position = delta;
 			// Rigth door
-			delta = Vector3.MoveTowards (doorRigth.transform.position, rigthStart, step);
+			delta = Vector3.MoveTowards(doorRigth.transform.position, rigthStart, step);
 			doorRigth.transform.position = delta;
 		}
 	}
 
-	public float SetOpen(bool b) {
+	public float SetOpen(bool b)
+	{
 		open = b;
-		return Mathf.Abs (doorRigth.transform.position.x - rigthStart.x) / speed;
+		return Mathf.Abs(doorRigth.transform.position.x - rigthStart.x) / speed;
 	}
 
 }
