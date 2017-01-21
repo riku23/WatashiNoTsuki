@@ -6,9 +6,10 @@ public class CloudPlatformScript : MonoBehaviour
     public float timeForDestroy, timeForRegenerate;
     BoxCollider2D boxCollider;
     SpriteRenderer spriteRenderer;
-
+    Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -36,14 +37,16 @@ public class CloudPlatformScript : MonoBehaviour
 
     void DestroyPlatform()
     {
-        spriteRenderer.color = Color.red;
+        anim.SetBool("Destroy", true);
+        //spriteRenderer.color = Color.red;
         //gameObject.SetActive(false);
         boxCollider.enabled = false;
     }
 
     void RegeneratePlatform()
     {
-        spriteRenderer.color = Color.white;
+        anim.SetBool("Destroy", false);
+        //spriteRenderer.color = Color.white;
         //gameObject.SetActive(true);
         boxCollider.enabled = true;
     }
