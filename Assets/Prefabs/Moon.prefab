@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013031150256}
   - 212: {fileID: 212000010997718298}
-  - 114: {fileID: 114000010754597614}
   - 114: {fileID: 114000011420199560}
   - 58: {fileID: 58000011000021608}
+  - 114: {fileID: 114000011389353336}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -57,7 +57,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &114000010754597614
+--- !u!114 &114000011389353336
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,11 +65,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010602087582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef33b0f6d6be8c4a856fe919abd7669, type: 3}
+  m_Script: {fileID: 11500000, guid: 058e630af8a00f94390da433743b17fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 8
-  b: 4
+  a: 40
+  b: 34
   increment: 0.02
   t: 0
 --- !u!114 &114000011420199560
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   victoryHeight: 3
+  player: {fileID: 0}
 --- !u!212 &212000010997718298
 SpriteRenderer:
   m_ObjectHideFlags: 1
