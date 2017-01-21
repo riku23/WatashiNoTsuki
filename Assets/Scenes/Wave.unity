@@ -671,8 +671,8 @@ MonoBehaviour:
   hLimitDistance: 100
   cCount: 0
   xpctGauss: 0
-  vrncGauss: 1
-  normalizeGaussian: 0.4
+  vrncGauss: 10
+  normalizeGaussian: 1
 --- !u!4 &503961847
 Transform:
   m_ObjectHideFlags: 0
