@@ -29,6 +29,7 @@ public class VictoryScript : MonoBehaviour
 	{
 		if (isRightPosition && collider.gameObject.CompareTag("Player") && collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnVictoryPlatform)
 		{
+			Destroy(collider.gameObject.GetComponent<InputHandler>());
 			Victory(collider);
 		}
 	}
