@@ -16,52 +16,52 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private Rigidbody2D rigidbody2d;
 	private bool isOnGround;
 	private bool isInWater;
-    private GameObject boat;
-    private bool boated;
-    private bool canMove;
+	private GameObject boat;
+	private bool boated;
+	private bool canMove;
 
-    private void Start()
+	private void Start()
 	{
-        canMove = true;
+		canMove = true;
 		rigidbody2d = GetComponent<Rigidbody2D>();
-        boated = false;
+		boated = false;
 	}
 
 	private void Update()
 	{
-        if (isOnGround)
-        {
-            canMove = true;
-        }
+		if (isOnGround)
+		{
+			canMove = true;
+		}
 		movementDirection = Input.GetAxisRaw("Horizontal");
-        if (boated)
-        {
-            this.gameObject.transform.eulerAngles =  new Vector3 (boat.transform.rotation.z, 0,0);
-        }
+		if (boated)
+		{
+			this.gameObject.transform.eulerAngles = new Vector3(boat.transform.rotation.z, 0, 0);
+		}
 
 	}
 
 	private void FixedUpdate()
 	{
 
-        if (boated)
-        {
-            this.gameObject.transform.rotation = boat.transform.rotation;
-        }
+		if (boated)
+		{
+			this.gameObject.transform.rotation = boat.transform.rotation;
+		}
         
-        //Horizontal movement
-        isInWater = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsWater);
-		if (!isInWater )
+		//Horizontal movement
+		isInWater = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsWater);
+		if (!isInWater)
 		{
 			ActivateGroundCollider();
-            if (canMove)
-            {
-                rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
-            }
-            }
+			if (canMove)
+			{
+				rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
+			}
+		}
 		else
 		{
-            canMove = false;
+			canMove = false;
 			ActivateWaterCollider();
 		}
 
@@ -84,7 +84,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		onGroundBoxCollider.enabled = false;
 		inWaterBoxCollider.enabled = true;
 	}
-    /*
+	/*
     private void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag == "Boat")
