@@ -17,6 +17,8 @@ public class BackScript : MonoBehaviour {
 	
 	void OnMouseDown()
 	{
+		this.gameObject.GetComponent<AudioSource>().Play();
+		GameObject.Find ("Back").GetComponent<Collider2D> ().enabled = false;
 		StartCoroutine(LoadNext());
 	}
 
