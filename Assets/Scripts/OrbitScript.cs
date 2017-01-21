@@ -8,7 +8,6 @@ public class OrbitScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Ciao");
     }
     
     // Update is called once per frame
