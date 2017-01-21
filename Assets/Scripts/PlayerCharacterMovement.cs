@@ -18,15 +18,21 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private bool isInWater;
     private GameObject boat;
     private bool boated;
+    private bool canMove;
 
     private void Start()
 	{
+        canMove = true;
 		rigidbody2d = GetComponent<Rigidbody2D>();
         boated = false;
 	}
 
 	private void Update()
 	{
+        if (isOnGround)
+        {
+            canMove = true;
+        }
 		movementDirection = Input.GetAxisRaw("Horizontal");
         if (boated)
         {
@@ -42,15 +48,20 @@ public class PlayerCharacterMovement : MonoBehaviour
         {
             this.gameObject.transform.rotation = boat.transform.rotation;
         }
+        
         //Horizontal movement
         isInWater = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsWater);
-		if (!isInWater)
+		if (!isInWater )
 		{
 			ActivateGroundCollider();
-			rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
-		}
+            if (canMove)
+            {
+                rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
+            }
+            }
 		else
 		{
+            canMove = false;
 			ActivateWaterCollider();
 		}
 
