@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000012466559130}
   - 50: {fileID: 50000011160640336}
   - 58: {fileID: 58000012477129124}
+  - 114: {fileID: 114000010620624692}
   m_Layer: 0
   m_Name: Fisherman
   m_TagString: Player
@@ -149,6 +150,22 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.75}
   serializedVersion: 2
   m_Size: {x: 3, y: 1.5}
+--- !u!114 &114000010620624692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010684069436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c1e6380ab143b469b77848378d417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartAmount: 5
+  heartSpawnRange: 5
+  heartDelay: 0.75
+  heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
+    type: 2}
 --- !u!114 &114000012466559130
 MonoBehaviour:
   m_ObjectHideFlags: 1

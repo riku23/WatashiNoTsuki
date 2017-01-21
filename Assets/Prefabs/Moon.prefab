@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartAmount: 5
-  heartSpawnRange: 1
-  heartDelay: 1
+  heartSpawnRange: 5
+  heartDelay: 0.75
   heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
     type: 2}
 --- !u!212 &212000010997718298

@@ -11,6 +11,15 @@ public class PlayerCharacterMovement : MonoBehaviour
 		}
 	}
 
+	public bool IsInWater
+	{
+		get
+		{
+			return isInWater;
+		}
+	}
+
+
 	public bool CanMove
 	{
 		set
@@ -27,7 +36,6 @@ public class PlayerCharacterMovement : MonoBehaviour
 	public LayerMask whatIsWater;
 	public Collider2D onGroundBoxCollider;
 	public BoxCollider2D inWaterBoxCollider;
-	public bool IsOnVehicle;
 
 	private float movementDirection;
 	private float climbDirection;
@@ -87,7 +95,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
             
 			ActivateGroundCollider();
-			if (canMove && !IsOnVehicle)
+			if (canMove)
 			{
 				rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
 			}
