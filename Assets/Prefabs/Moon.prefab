@@ -23,6 +23,7 @@ GameObject:
   - 114: {fileID: 114000011420199560}
   - 58: {fileID: 58000011000021608}
   - 114: {fileID: 114000011389353336}
+  - 114: {fileID: 114000013039138948}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -85,7 +86,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryHeight: 3
   needsPlatformToWin: 0
-  nextSceneName: 
+  delayBeforeVictory: 0
+  currentLevel: 0
+--- !u!114 &114000013039138948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010602087582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c1e6380ab143b469b77848378d417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartAmount: 5
+  heartSpawnRange: 1
+  heartDelay: 1
+  heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
+    type: 2}
 --- !u!212 &212000010997718298
 SpriteRenderer:
   m_ObjectHideFlags: 1
