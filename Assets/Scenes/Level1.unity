@@ -129,29 +129,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012466559130, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: movementForce
-      value: 18
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012466559130, guid: b5c46dde58109954baf4128a504a572f,
+    - target: {fileID: 212000010902793628, guid: b5c46dde58109954baf4128a504a572f,
         type: 2}
-      propertyPath: jumpForce
-      value: 28
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 50000011160640336, guid: b5c46dde58109954baf4128a504a572f,
+    - target: {fileID: 212000010902793628, guid: b5c46dde58109954baf4128a504a572f,
         type: 2}
-      propertyPath: m_GravityScale
-      value: 2
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 61000012408108452, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3919f8153c8f0a041adff820fc46b0b1, type: 2}
-    - target: {fileID: 50000011160640336, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: m_Mass
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1569,8 +1566,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1270488388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -8.54, z: 0}
-  m_LocalScale: {x: 3.5, y: 1, z: 1}
+  m_LocalPosition: {x: -0.14, y: -8.55, z: 0}
+  m_LocalScale: {x: 3.5, y: 1.0108588, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
