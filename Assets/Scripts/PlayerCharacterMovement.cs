@@ -39,7 +39,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private float movementDirection;
 	private float climbDirection;
-	private Rigidbody2D rigidbody2d;
+    private Animator anim;
+    private Rigidbody2D rigidbody2d;
 	private bool isOnGround;
 	private bool isInWater;
 	private GameObject boat;
@@ -47,11 +48,11 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private bool canMove;
 	public bool canClimb;
 	float originalGravity;
-
 	private void Start()
 	{
 
 		canMove = true;
+        anim = GetComponent<Animator>();
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		originalGravity = rigidbody2d.gravityScale;
 		boated = false;
@@ -60,6 +61,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private void Update()
 	{
+        anim.SetBool("isOnGround", isOnGround);
+
 		if (isOnGround)
 		{
 			canMove = true;
@@ -73,8 +76,19 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
 			climbDirection = 0f;
 		}
-
-	}
+        int animVelocity = (int)Mathf.Clamp(movementDirection * movementForce, -1f, 1f);
+        Debug.Log((int)Mathf.Clamp(movementDirection * movementForce, -1f, 1f));
+        anim.SetInteger("velocityInt", animVelocity );
+        if(animVelocity == 1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if(animVelocity == -1)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+       
+    }
 
 	private void FixedUpdate()
 	{
@@ -97,6 +111,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 			ActivateGroundCollider();
 			if (canMove)
 			{
+                
 				rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
 			}
 		}
@@ -113,7 +128,10 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
 			rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 		}
-	}
+
+
+    
+    }
 
 	private void ActivateGroundCollider()
 	{

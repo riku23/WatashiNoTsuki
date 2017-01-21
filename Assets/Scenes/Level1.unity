@@ -129,30 +129,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012466559130, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: movementForce
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012466559130, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: jumpForce
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000011160640336, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000012408108452, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3919f8153c8f0a041adff820fc46b0b1, type: 2}
-    - target: {fileID: 50000011160640336, guid: b5c46dde58109954baf4128a504a572f,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5c46dde58109954baf4128a504a572f, type: 2}
