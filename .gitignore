@@ -6,12 +6,6 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-*.wav
-*.wav.meta
-*.mp3
-*.mp3.meta
-*.mp4
-*.mp4.meta
 *.ogg
 *.ogg.meta
 *.ogv
@@ -43,5 +37,3 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
-
-.waw

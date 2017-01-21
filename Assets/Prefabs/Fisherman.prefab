@@ -20,10 +20,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010863156900}
   - 212: {fileID: 212000010902793628}
-  - 61: {fileID: 61000012408108452}
   - 114: {fileID: 114000012466559130}
   - 50: {fileID: 50000011160640336}
   - 58: {fileID: 58000012477129124}
+  - 61: {fileID: 61000012408108452}
+  - 114: {fileID: 114000010620624692}
+  - 95: {fileID: 95000010387861042}
   m_Layer: 0
   m_Name: Fisherman
   m_TagString: Player
@@ -70,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010684069436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.5, y: 6.5, z: 0}
+  m_LocalPosition: {x: -16, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -115,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.8
+  m_GravityScale: 2
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -143,12 +145,45 @@ BoxCollider2D:
   m_GameObject: {fileID: 1000010684069436}
   m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3919f8153c8f0a041adff820fc46b0b1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0.75}
   serializedVersion: 2
   m_Size: {x: 3, y: 1.5}
+--- !u!95 &95000010387861042
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010684069436}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c42c064a5ac6194ca7c8a66230c8ff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010620624692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010684069436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c1e6380ab143b469b77848378d417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartAmount: 5
+  heartSpawnRange: 5
+  heartDelay: 0.75
+  heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
+    type: 2}
 --- !u!114 &114000012466559130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,8 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70acd0070f28db146adde1ee424f9b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 10
-  jumpForce: 22
+  movementForce: 18
+  jumpForce: 28
   guyCollisionChecker1: {fileID: 4000012413808454}
   guyCollisionChecker2: {fileID: 4000010937046352}
   whatIsGround:
@@ -233,10 +268,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1208336313
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 9a221a635eafe9849b70acd792d3f15b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingLayerID: -1811160297
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: ba8af585cf72ac842b2178b7df0836d2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000012406635632

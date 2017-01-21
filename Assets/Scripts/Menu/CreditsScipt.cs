@@ -17,6 +17,8 @@ public class CreditsScipt : MonoBehaviour {
 
 	void OnMouseDown()
 	{
+		GameObject.Find ("New Game").GetComponent<Collider2D> ().enabled = false;
+		GameObject.Find ("Continue").GetComponent<Collider2D> ().enabled = false;
 		StartCoroutine(LoadNext());
 	}
 
