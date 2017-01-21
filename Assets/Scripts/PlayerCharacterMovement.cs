@@ -69,6 +69,18 @@ public class PlayerCharacterMovement : MonoBehaviour
 		originalGravity = rigidbody2d.gravityScale;
 		boated = false;
 		canClimb = false;
+		#if UNITY_EDITOR
+		gameObject.AddComponent<InputHandler>();
+		#else
+		StartCoroutine(GiveControls());
+		#endif
+	}
+
+	private IEnumerator GiveControlsAfterDelay()
+	{
+		float delay = GameObject.Find("Door").GetComponent<BeginDoorScript>().GetOpeningTime();
+		yield return new WaitForSeconds(delay);
+		gameObject.AddComponent<InputHandler>();
 	}
 
 	private void Update()
@@ -79,10 +91,24 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
 			canMove = true;
 		}
-		movementDirection = Input.GetAxisRaw("Horizontal");
+		if (gameObject.GetComponent<InputHandler>() != null)
+		{
+			movementDirection = gameObject.GetComponent<InputHandler>().GetMovementDirection;
+		}
+		else
+		{
+			movementDirection = 0f;
+		}
 		if (canClimb)
 		{
-			climbDirection = Input.GetAxisRaw("Vertical");
+			if (gameObject.GetComponent<InputHandler>() != null)
+			{
+				climbDirection = gameObject.GetComponent<InputHandler>().GetClimbDirection;
+			}
+			else
+			{
+				climbDirection = 0f;
+			}
 		}
 		else
 		{
@@ -116,10 +142,10 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
             
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, climbDirection * movementForce);
-            if(rigidbody2d.velocity.y != 0f)
-            {
-                anim.SetBool("Climb", true);
-            }
+			if (rigidbody2d.velocity.y != 0f)
+			{
+				anim.SetBool("Climb", true);
+			}
 		}
 
 		//Horizontal movement
@@ -144,7 +170,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 		//Jump
 		isOnGround = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsGround);
-		if (isOnGround && /*!isJumping &&*/ Input.GetButton("Jump") && !isInWater && !canClimb)
+		if (isOnGround && /*!isJumping &&*/ !isInWater && !canClimb && gameObject.GetComponent<InputHandler>() != null && gameObject.GetComponent<InputHandler>().GetJumpInput)
 		{
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
 			rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -156,13 +182,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private void ActivateGroundCollider()
 	{
-        anim.SetBool("Swim", false);
-        onGroundBoxCollider.enabled = true;
+		anim.SetBool("Swim", false);
+		onGroundBoxCollider.enabled = true;
 		inWaterBoxCollider.enabled = false;
 	}
 
 	private void ActivateWaterCollider()
 	{
+
         rigidbody2d.gravityScale = originalGravity;
         anim.SetBool("Swim", true);
 		onGroundBoxCollider.enabled = false;
@@ -218,7 +245,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
 			canClimb = false;
 			rigidbody2d.gravityScale = originalGravity;
-            anim.SetBool("Climb", false);
+			anim.SetBool("Climb", false);
 		}
 	}
 

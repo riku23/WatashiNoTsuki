@@ -63,4 +63,9 @@ public class BeginDoorScript : MonoBehaviour
 		return Mathf.Abs(doorRigth.transform.position.x - rigthStart.x) / speed;
 	}
 
+	public float GetOpeningTime()
+	{
+		return Mathf.Abs(rigthStart.x - rigthTarget.x) / speed;
+	}
+
 }
