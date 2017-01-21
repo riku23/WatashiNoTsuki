@@ -8,12 +8,13 @@ public class OrbitScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    
-	}
+        Debug.Log("Ciao");
+    }
     
     // Update is called once per frame
     void Update()
     {
+        
         if ((Input.GetAxis("RotationAxis") < 0) || Input.GetKey(KeyCode.E))
         {
             rotationDirection = -1;
