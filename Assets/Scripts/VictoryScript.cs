@@ -29,6 +29,7 @@ public class VictoryScript : MonoBehaviour
 	{
 		if (isRightPosition && collider.gameObject.CompareTag("Player") && collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnVictoryPlatform)
 		{
+			Destroy(collider.gameObject.GetComponent<InputHandler>());
 			Victory(collider);
 		}
 	}
@@ -38,6 +39,7 @@ public class VictoryScript : MonoBehaviour
 		if (!spawnedHearts)
 		{
 			spawnedHearts = true;
+            collider.gameObject.GetComponent<Animator>().SetBool("Victory", true);
 			collider.gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 			gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 		}
