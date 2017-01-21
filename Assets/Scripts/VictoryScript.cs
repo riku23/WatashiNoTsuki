@@ -19,12 +19,10 @@ public class VictoryScript : MonoBehaviour
 		{
 			isRightPosition = false;
 		}
-		//print(isRightPosition);
 	}
 
 	void OnTriggerStay2D(Collider2D collider)
 	{
-		print(collider.gameObject.CompareTag("Player"));
 		if (isRightPosition && collider.gameObject.CompareTag("Player"))
 		{
 			if (!needsPlatformToWin || collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnGround)
