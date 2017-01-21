@@ -57,7 +57,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.3
 --- !u!114 &114000011389353336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
   a: 40
   b: 34
   increment: 0.02
-  t: 0
+  t: 1.56
 --- !u!114 &114000011420199560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryHeight: 3
   delayBeforeVictory: 0
-  currentLevel: 0
+  currentLevel: 1
 --- !u!114 &114000013039138948
 MonoBehaviour:
   m_ObjectHideFlags: 1
