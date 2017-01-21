@@ -4,10 +4,9 @@ using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
-	public static readonly int MAX_LEVELS = 1;
+	public static readonly int MAX_LEVELS = 3;
 
 	public float victoryHeight;
-	public bool needsPlatformToWin;
 	public float delayBeforeVictory;
 	public int currentLevel;
 
@@ -58,7 +57,7 @@ public class VictoryScript : MonoBehaviour
 		{
 			yield return new WaitForSeconds(delayBeforeVictory);
 			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
-			SceneManager.LoadScene("Credits");
+			SceneManager.LoadScene("Final");
 		}
 	}
 }
