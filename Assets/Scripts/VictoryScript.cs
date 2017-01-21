@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
 	public float victoryHeight;
-	bool isRightPosition;
-	public GameObject player;
-	bool spawnedHearts;
 	public bool needsPlatformToWin;
+	public string nextSceneName;
 
-	void Update()
+	private bool isRightPosition;
+	private bool spawnedHearts;
+
+	private void Update()
 	{
 		if (transform.position.y > victoryHeight)
 		{
@@ -21,7 +23,7 @@ public class VictoryScript : MonoBehaviour
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D collider)
+	private void OnTriggerStay2D(Collider2D collider)
 	{
 		if (isRightPosition && collider.gameObject.CompareTag("Player"))
 		{
@@ -35,6 +37,7 @@ public class VictoryScript : MonoBehaviour
 	private void Victory(Collider2D collider)
 	{
 		print("Victory!");
+
 		if (!spawnedHearts)
 		{
 			spawnedHearts = true;
@@ -42,4 +45,9 @@ public class VictoryScript : MonoBehaviour
 		}
 	}
 
+	private IEnumerator LoadNext()
+	{
+		yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
+		SceneManager.LoadScene(nextSceneName);
+	}
 }
