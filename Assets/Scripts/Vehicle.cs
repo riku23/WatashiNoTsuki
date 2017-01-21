@@ -8,6 +8,7 @@ public class Vehicle : MonoBehaviour
 	private bool playerIsControlling;
 	private float movementDirection;
 	private Rigidbody2D rigidbody2d;
+	private Rigidbody2D playerRigidbody2d;
 
 	private void Start()
 	{
@@ -27,7 +28,8 @@ public class Vehicle : MonoBehaviour
 	{
 		if (playerIsControlling)
 		{
-			rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
+			rigidbody2d.velocity = new Vector2(playerRigidbody2d.velocity.x, rigidbody2d.velocity.y);
+			//new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
 		}
 	}
 
@@ -36,6 +38,8 @@ public class Vehicle : MonoBehaviour
 		if (other.gameObject.CompareTag("Player"))
 		{
 			playerIsControlling = true;
+			//other.gameObject.GetComponent<PlayerCharacterMovement>().CanMove = false;
+			playerRigidbody2d = other.gameObject.GetComponent<Rigidbody2D>();
 		}
 	}
 
@@ -44,6 +48,7 @@ public class Vehicle : MonoBehaviour
 		if (other.gameObject.CompareTag("Player"))
 		{
 			playerIsControlling = false;
+			//other.gameObject.GetComponent<PlayerCharacterMovement>().CanMove = true;
 		}
 	}
 }

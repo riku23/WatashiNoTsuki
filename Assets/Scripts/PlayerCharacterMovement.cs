@@ -11,6 +11,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 		}
 	}
 
+	public bool CanMove
+	{
+		set
+		{
+			canMove = value;
+		}
+	}
+
 	public float movementForce;
 	public float jumpForce;
 	public Transform guyCollisionChecker1;
@@ -19,6 +27,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 	public LayerMask whatIsWater;
 	public Collider2D onGroundBoxCollider;
 	public BoxCollider2D inWaterBoxCollider;
+	public bool IsOnVehicle;
 
 	private float movementDirection;
 	private float climbDirection;
@@ -48,14 +57,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 			canMove = true;
 		}
 		movementDirection = Input.GetAxisRaw("Horizontal");
-        if (canClimb)
-        {
-            climbDirection = Input.GetAxisRaw("Vertical");
-        }
-        else
-        {
-            climbDirection = 0f;
-        }
+		if (canClimb)
+		{
+			climbDirection = Input.GetAxisRaw("Vertical");
+		}
+		else
+		{
+			climbDirection = 0f;
+		}
 
 	}
 
@@ -78,14 +87,14 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
             
 			ActivateGroundCollider();
-			if (canMove)
+			if (canMove && !IsOnVehicle)
 			{
 				rigidbody2d.velocity = new Vector2(movementDirection * movementForce, rigidbody2d.velocity.y);
 			}
 		}
 		else
 		{
-            rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+			rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
 			canMove = false;
 			ActivateWaterCollider();
 		}
@@ -143,8 +152,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Stairs"))
 		{
-            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
-            canClimb = false;
+			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
+			canClimb = false;
 			rigidbody2d.gravityScale = originalGravity;
 			
 		}
