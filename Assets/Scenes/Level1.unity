@@ -133,6 +133,24 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010902793628, guid: b5c46dde58109954baf4128a504a572f,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010902793628, guid: b5c46dde58109954baf4128a504a572f,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010863156900, guid: b5c46dde58109954baf4128a504a572f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5c46dde58109954baf4128a504a572f, type: 2}
   m_IsPrefabParent: 0
