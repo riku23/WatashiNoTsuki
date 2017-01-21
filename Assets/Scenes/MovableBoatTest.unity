@@ -1778,19 +1778,6 @@ Prefab:
       propertyPath: m_Name
       value: Block (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012110089810, guid: f48153696b64dd64b9fcff9f9bf29e37, type: 2}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010782124210, guid: f48153696b64dd64b9fcff9f9bf29e37, type: 2}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000014077426320, guid: f48153696b64dd64b9fcff9f9bf29e37,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1671490871
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f48153696b64dd64b9fcff9f9bf29e37, type: 2}
   m_IsPrefabParent: 0
@@ -1994,8 +1981,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 212000014077426320, guid: f48153696b64dd64b9fcff9f9bf29e37,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1808636337
+      propertyPath: m_Color.a
+      value: 0.9411765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f48153696b64dd64b9fcff9f9bf29e37, type: 2}

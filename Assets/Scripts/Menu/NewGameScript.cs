@@ -17,8 +17,10 @@ public class NewGameScript : MonoBehaviour {
 	
 	void OnMouseDown()
 	{
-		GameObject.Find ("Credits").GetComponent<Collider2D> ().enabled = false;
+		this.gameObject.GetComponent<AudioSource>().Play();
+		GameObject.Find ("New Game").GetComponent<Collider2D> ().enabled = false;
 		GameObject.Find ("Continue").GetComponent<Collider2D> ().enabled = false;
+		GameObject.Find ("Credits").GetComponent<Collider2D> ().enabled = false;
 		StartCoroutine(LoadNext());
 	}
 
