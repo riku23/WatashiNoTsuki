@@ -6,6 +6,8 @@ public class VictoryScript : MonoBehaviour
 	public float victoryHeight;
 	bool isRightPosition;
 	public GameObject player;
+	bool spawnedHearts;
+	public bool needsPlatformToWin;
 
 	void Update()
 	{
@@ -22,11 +24,24 @@ public class VictoryScript : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D collider)
 	{
-		if (isRightPosition && collider.gameObject.Equals(player))
+		print(collider.gameObject.CompareTag("Player"));
+		if (isRightPosition && collider.gameObject.CompareTag("Player"))
 		{
-			print("Victory!");
+			if (!needsPlatformToWin || collider.gameObject.GetComponent<PlayerCharacterMovement>().IsOnGround)
+			{
+				Victory(collider);
+			}
 		}
 	}
 
+	private void Victory(Collider2D collider)
+	{
+		print("Victory!");
+		if (!spawnedHearts)
+		{
+			spawnedHearts = true;
+			collider.gameObject.GetComponent<HeartSpawner>().SpawnHearts();
+		}
+	}
 
 }
