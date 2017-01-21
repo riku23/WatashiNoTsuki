@@ -25,8 +25,10 @@ public class BeginDoorScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		leftStart = doorLeft.transform.position;
-		rigthStart = doorRigth.transform.position;
+		leftStart = new Vector2(-23.3f, 0f);
+		doorLeft.transform.position = leftStart;
+		rigthStart =new Vector2(23.3f, 0f);
+		doorRigth.transform.position = rigthStart;
 		z = leftStart.z;
 		leftTarget = new Vector3(xTarget * -1, leftStart.y, z);
 		rigthTarget = new Vector3(xTarget, leftStart.y, z);
