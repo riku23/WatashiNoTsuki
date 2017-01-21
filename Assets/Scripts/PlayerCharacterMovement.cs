@@ -48,8 +48,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private float climbDirection;
 	private Animator anim;
 	private Rigidbody2D rigidbody2d;
-	private bool isOnGround;
-	private bool isInWater;
+	public bool isOnGround;
+	public bool isInWater;
 	private bool isOnVictoryPlatform;
 	private GameObject boat;
 	private bool boated;
@@ -136,6 +136,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		}
 		else
 		{
+            canClimb = false;
 			rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
 			canMove = false;
 			ActivateWaterCollider();
@@ -162,6 +163,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private void ActivateWaterCollider()
 	{
+        rigidbody2d.gravityScale = originalGravity;
         anim.SetBool("Swim", true);
 		onGroundBoxCollider.enabled = false;
 		inWaterBoxCollider.enabled = true;
@@ -202,7 +204,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Stairs") && isOnGround)
+		if (isOnGround && !isInWater && other.gameObject.CompareTag("Stairs"))
 		{
 			rigidbody2d.gravityScale = 0f;
 			canClimb = true;
