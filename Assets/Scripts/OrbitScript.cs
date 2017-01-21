@@ -9,7 +9,7 @@ public class OrbitScript : MonoBehaviour
 
 	void Update()
 	{
-        
+
 		if ((Input.GetAxis("RotationAxis") < 0) || Input.GetKey(KeyCode.E))
 		{
 			rotationDirection = -1;
@@ -23,7 +23,6 @@ public class OrbitScript : MonoBehaviour
 			rotationDirection = 0;
 		}
 	}
-
 
 	void FixedUpdate()
 	{

@@ -3,14 +3,9 @@ using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
-	CircleCollider2D victoryCollider;
 	public float victoryHeight;
 	bool isRightPosition;
-
-	void Start()
-	{
-		victoryCollider = new CircleCollider2D();
-	}
+	public GameObject player;
 
 	void Update()
 	{
@@ -22,14 +17,16 @@ public class VictoryScript : MonoBehaviour
 		{
 			isRightPosition = false;
 		}
-		print(isRightPosition);
+		//print(isRightPosition);
 	}
 
 	void OnTriggerStay2D(Collider2D collider)
 	{
-		if (isRightPosition)
+		if (isRightPosition && collider.gameObject.Equals(player))
 		{
 			print("Victory!");
 		}
 	}
+
+
 }
