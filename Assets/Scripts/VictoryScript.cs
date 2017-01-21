@@ -4,9 +4,12 @@ using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
+	public static readonly int MAX_LEVELS = 1;
+
 	public float victoryHeight;
 	public bool needsPlatformToWin;
-	public string nextSceneName;
+	public float delayBeforeVictory;
+	public int currentLevel;
 
 	private bool isRightPosition;
 	private bool spawnedHearts;
@@ -43,11 +46,24 @@ public class VictoryScript : MonoBehaviour
 			spawnedHearts = true;
 			collider.gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 		}
+
+		StartCoroutine(LoadNext());
 	}
 
 	private IEnumerator LoadNext()
 	{
-		yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
-		SceneManager.LoadScene(nextSceneName);
+		if (currentLevel < MAX_LEVELS)
+		{
+			PlayerPrefs.SetInt("CurrentLevel", currentLevel + 1);
+			yield return new WaitForSeconds(delayBeforeVictory);
+			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
+			SceneManager.LoadScene("Level" + (currentLevel + 1));
+		}
+		else
+		{
+			yield return new WaitForSeconds(delayBeforeVictory);
+			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
+			SceneManager.LoadScene("Credits");
+		}
 	}
 }
