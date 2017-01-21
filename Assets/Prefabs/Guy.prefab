@@ -24,9 +24,10 @@ GameObject:
   - 61: {fileID: 61000010931377738}
   - 114: {fileID: 114000011708973824}
   - 50: {fileID: 50000011531034250}
+  - 114: {fileID: 114000011050417730}
   m_Layer: 0
   m_Name: Guy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +150,22 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.28, y: 2.56}
+--- !u!114 &114000011050417730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010328940408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c1e6380ab143b469b77848378d417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartAmount: 5
+  heartSpawnRange: 1
+  heartDelay: 1
+  heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
+    type: 2}
 --- !u!114 &114000011708973824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +189,7 @@ MonoBehaviour:
     m_Bits: 16
   onGroundBoxCollider: {fileID: 61000011109666084}
   inWaterBoxCollider: {fileID: 61000010931377738}
+  canClimb: 0
 --- !u!212 &212000010950876780
 SpriteRenderer:
   m_ObjectHideFlags: 1

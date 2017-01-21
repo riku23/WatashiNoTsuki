@@ -84,7 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   victoryHeight: 3
-  player: {fileID: 0}
+  needsPlatformToWin: 0
+  nextSceneName: 
 --- !u!212 &212000010997718298
 SpriteRenderer:
   m_ObjectHideFlags: 1
