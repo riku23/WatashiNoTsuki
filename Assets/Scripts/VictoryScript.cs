@@ -57,7 +57,7 @@ public class VictoryScript : MonoBehaviour
 		{
 			yield return new WaitForSeconds(delayBeforeVictory);
 			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
-			SceneManager.LoadScene("Credits");
+			SceneManager.LoadScene("Final");
 		}
 	}
 }

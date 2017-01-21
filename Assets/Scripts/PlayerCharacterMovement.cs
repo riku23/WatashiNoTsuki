@@ -56,6 +56,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private bool canMove;
 	public bool canClimb;
 	private bool isJumping;
+	private float xOld;
+	private float xNew;
 	float originalGravity;
 
 	private void Start()
@@ -101,7 +103,10 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-
+		if (xNew - xOld > 0)
+			isJumping = true;
+		else
+			isJumping = false;
 		if (boated)
 		{
 			this.gameObject.transform.rotation = boat.transform.rotation;
@@ -133,7 +138,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 		//Jump
 		isOnGround = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsGround);
-		if (isOnGround && Input.GetButton("Jump") && !isInWater && !canClimb)
+		if (isOnGround && !isJumping && Input.GetButton("Jump") && !isInWater && !canClimb)
 		{
 			rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 		}
