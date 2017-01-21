@@ -45,6 +45,7 @@ public class VictoryScript : MonoBehaviour
 		{
 			spawnedHearts = true;
 			collider.gameObject.GetComponent<HeartSpawner>().SpawnHearts();
+			gameObject.GetComponent<HeartSpawner>().SpawnHearts();
 		}
 
 		StartCoroutine(LoadNext());

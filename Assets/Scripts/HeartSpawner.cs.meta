@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 21c1e6380ab143b469b77848378d417e
-timeCreated: 1484990806
+timeCreated: 1485001774
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - heartPrefab: {fileID: 1000013907981238, guid: b949bce704060ad48aee266cbfff7c4b,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
