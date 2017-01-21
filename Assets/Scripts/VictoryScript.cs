@@ -4,7 +4,7 @@ using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
-	public static readonly int MAX_LEVELS = 3;
+	public static readonly int MAX_LEVELS = 1;
 
 	public float victoryHeight;
 	public float delayBeforeVictory;
