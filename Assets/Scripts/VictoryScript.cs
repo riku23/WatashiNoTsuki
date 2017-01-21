@@ -4,10 +4,9 @@ using System.Collections;
 
 public class VictoryScript : MonoBehaviour
 {
-	public static readonly int MAX_LEVELS = 1;
+	public static readonly int MAX_LEVELS = 3;
 
 	public float victoryHeight;
-	public bool needsPlatformToWin;
 	public float delayBeforeVictory;
 	public int currentLevel;
 
