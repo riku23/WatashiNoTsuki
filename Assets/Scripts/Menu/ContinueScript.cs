@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class ContinueScript : MonoBehaviour {
 	
-	// Shadow
-	public GameObject black;
 	// Current level
 	int currentLevel = 0;
 	// Is enabled?
@@ -18,15 +16,14 @@ public class ContinueScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentLevel = PlayerPrefs.GetInt("CurrentLevel");
-		currentLevel = 1;
 		door = GameObject.Find("Door");
 		doorScript = door.GetComponent<BeginDoorScript>();
 			
 		if (currentLevel == 0) {
-			black.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, .5f);
+			this.transform.GetChild (0).GetComponent<SpriteRenderer> ().color = new Color (0.5f, 0.5f, 0.5f, 1f);
 			continueEnabled = false;
 		} else {
-			black.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 0f);
+			this.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f, 1f);
 			continueEnabled = true;
 		}
 	}
@@ -38,8 +35,11 @@ public class ContinueScript : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		if (continueEnabled)
-			StartCoroutine(LoadNext());
+		if (continueEnabled) {
+			GameObject.Find ("New Game").GetComponent<Collider2D> ().enabled = false;
+			GameObject.Find ("Credits").GetComponent<Collider2D> ().enabled = false;
+			StartCoroutine (LoadNext ());
+		}
 	}
 
 	IEnumerator LoadNext()
