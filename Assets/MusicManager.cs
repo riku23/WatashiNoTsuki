@@ -11,7 +11,8 @@ public class MusicManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		// Disable the mouse
+		Cursor.visible = false;
 	}
 
 	void Awake () {
