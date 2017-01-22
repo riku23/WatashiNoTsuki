@@ -5,13 +5,13 @@ public class CloudPlatformScript : MonoBehaviour
 {
     public float timeForDestroy, timeForRegenerate;
     BoxCollider2D boxCollider;
-    SpriteRenderer spriteRenderer;
+    // SpriteRenderer spriteRenderer;
     Animator anim;
     void Start()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        // spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()

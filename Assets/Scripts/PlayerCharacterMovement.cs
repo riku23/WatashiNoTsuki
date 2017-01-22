@@ -238,7 +238,6 @@ public class PlayerCharacterMovement : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Boat")
 		{
-			Debug.Log("BOAT");
 			boated = true;
 			this.boat = other.gameObject;
 		}
