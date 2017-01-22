@@ -17,6 +17,7 @@ public class Story1Script : MonoBehaviour {
 		doorScript = door.GetComponent<BeginDoorScript>();
 		// Start the unlock coortutine
 		StartCoroutine(EnableInputDelayed());
+		StartCoroutine(LoadNextDeleyed());
 	}
 
 	void Update()
@@ -31,6 +32,16 @@ public class Story1Script : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (doorScript.SetOpen (false));
 		SceneManager.LoadScene ("Story2");
+	}
+
+	IEnumerator LoadNextDeleyed()
+	{
+		yield return new WaitForSeconds (9f);
+		if (inputEnabled) {
+			inputEnabled = false;
+			yield return new WaitForSeconds (doorScript.SetOpen (false));
+			SceneManager.LoadScene ("Story2");
+		}
 	}
 
 	IEnumerator EnableInputDelayed() {
