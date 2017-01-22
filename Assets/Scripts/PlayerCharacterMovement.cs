@@ -76,7 +76,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 		#if UNITY_EDITOR
 		gameObject.AddComponent<InputHandler>();
 		#else
-		StartCoroutine(GiveControls());
+		StartCoroutine(GiveControlsAfterDelay());
 		#endif
 	}
 
