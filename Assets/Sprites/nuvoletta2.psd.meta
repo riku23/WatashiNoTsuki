@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 7395808906890474baa7159abeb4b6ae
-timeCreated: 1485038188
+guid: c45399fdc13ffcf458bcb93bff85897a
+timeCreated: 1485038231
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: nuvoletta_0
+    21300000: nuvoletta_2
     21300002: nuvoletta_1
-    21300004: nuvoletta_2
+    21300004: nuvoletta_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +56,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nuvoletta_0
+      name: nuvoletta_2
       rect:
         serializedVersion: 2
         x: 1
@@ -82,7 +82,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: nuvoletta_2
+      name: nuvoletta_0
       rect:
         serializedVersion: 2
         x: 0

@@ -8,6 +8,8 @@ public class BackScript : MonoBehaviour {
 	GameObject door;
 	// Door script
 	BeginDoorScript doorScript;
+	// Has been selected?
+	bool selected = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +17,13 @@ public class BackScript : MonoBehaviour {
 		doorScript = door.GetComponent<BeginDoorScript>();	
 	}
 	
-	void OnMouseDown()
+	void Update()
 	{
-		this.gameObject.GetComponent<AudioSource>().Play();
-		GameObject.Find ("Back").GetComponent<Collider2D> ().enabled = false;
-		StartCoroutine(LoadNext());
+		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && !selected)  {
+			selected = true;
+			this.gameObject.GetComponent<AudioSource> ().Play ();
+			StartCoroutine (LoadNext ());
+		}
 	}
 
 	IEnumerator LoadNext()
