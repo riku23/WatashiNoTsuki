@@ -247,7 +247,9 @@ public class PlayerCharacterMovement : MonoBehaviour
 			this.boat = null;
 			this.gameObject.transform.eulerAngles = Vector3.zero;
 		}
-		isOnVictoryPlatform = false;
+       
+
+        isOnVictoryPlatform = false;
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -257,7 +259,12 @@ public class PlayerCharacterMovement : MonoBehaviour
 			rigidbody2d.gravityScale = 0f;
 			canClimb = true;
 		}
-	}
+
+        if (other.gameObject.tag == "BoatLimit")
+        {
+            anim.SetBool("Row", true);
+        }
+    }
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
@@ -268,7 +275,12 @@ public class PlayerCharacterMovement : MonoBehaviour
 			rigidbody2d.gravityScale = originalGravity;
 			anim.SetBool("Climb", false);
 		}
-	}
+
+        if (other.gameObject.tag == "BoatLimit")
+        {
+            anim.SetBool("Row", false);
+        }
+    }
 
 
 

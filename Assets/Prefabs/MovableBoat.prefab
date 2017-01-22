@@ -21,9 +21,10 @@ GameObject:
   - 4: {fileID: 4000013728827662}
   - 212: {fileID: 212000010162150984}
   - 61: {fileID: 61000013430348114}
+  - 61: {fileID: 61000012238816640}
   m_Layer: 8
   m_Name: BoatLimitRight
-  m_TagString: Untagged
+  m_TagString: BoatLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,9 +39,10 @@ GameObject:
   - 4: {fileID: 4000011489275966}
   - 212: {fileID: 212000011308754936}
   - 61: {fileID: 61000011447258928}
+  - 61: {fileID: 61000011712669228}
   m_Layer: 8
   m_Name: BoatLimitLeft
-  m_TagString: Untagged
+  m_TagString: BoatLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013965746428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.219429, y: 21.705254, z: 0}
+  m_LocalPosition: {x: -9.1, y: 7.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -149,6 +151,34 @@ BoxCollider2D:
   m_Offset: {x: -0.009439468, y: -0.49560294}
   serializedVersion: 2
   m_Size: {x: 5.135661, y: 1.9912122}
+--- !u!61 &61000011712669228
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013611941654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.42667723, y: 0.00000023841858}
+  serializedVersion: 2
+  m_Size: {x: 1.8533591, y: 1}
+--- !u!61 &61000012238816640
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011793273588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.4977908, y: 0.00000023841858}
+  serializedVersion: 2
+  m_Size: {x: 1.9955842, y: 1}
 --- !u!61 &61000013430348114
 BoxCollider2D:
   m_ObjectHideFlags: 1

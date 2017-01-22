@@ -1,0 +1,115 @@
+fileFormatVersion: 2
+guid: 573505a713c570c438e1dfa2f01c035d
+timeCreated: 1485043944
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: voga scemo_0
+    21300002: voga scemo_1
+    21300004: voga scemo_2
+    21300006: voga scemo_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: voga scemo_0
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 306
+        width: 562
+        height: 737
+      alignment: 9
+      pivot: {x: 0.5793002, y: 0.49395287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: voga scemo_1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 685
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: voga scemo_2
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 305
+        width: 581
+        height: 738
+      alignment: 9
+      pivot: {x: 0.58054227, y: 0.4969805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: voga scemo_3
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 321
+        width: 544
+        height: 722
+      alignment: 9
+      pivot: {x: 0.5573466, y: 0.48456824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
