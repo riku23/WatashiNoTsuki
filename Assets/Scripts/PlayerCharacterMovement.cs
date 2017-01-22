@@ -61,6 +61,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 	float originalGravity;
     float curY;
     float oldY;
+	bool hasJumped = false;
 	private void Start()
 	{
 
@@ -95,6 +96,9 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private void Update()
 	{
 		anim.SetBool("isOnGround", isOnGround);
+
+		if (hasJumped && !gameObject.GetComponent<InputHandler> ().GetJumpInput)
+			hasJumped = false;
 
 		if (isOnGround)
 		{
@@ -194,8 +198,9 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 		//Jump
 		isOnGround = Physics2D.OverlapArea(guyCollisionChecker1.position, guyCollisionChecker2.position, whatIsGround);
-		if (isOnGround && /*!isJumping &&*/ !isInWater && !canClimb && gameObject.GetComponent<InputHandler>() != null && gameObject.GetComponent<InputHandler>().GetJumpInput)
+		if (isOnGround && /*!isJumping &&*/ !isInWater && !canClimb && gameObject.GetComponent<InputHandler>() != null && gameObject.GetComponent<InputHandler>().GetJumpInput && !hasJumped)
 		{
+			hasJumped = true;
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
             rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
  
