@@ -15,9 +15,9 @@ public class PadMenuScript : MonoBehaviour {
 	// Original pitch
 	float pitch;
 	// The three buttons and the door
-	public GameObject newButton, continueButton, creditsButton, door;
+	public GameObject newButton, continueButton, creditsButton, exitButton, door;
 	// The three pointers and the door
-	public GameObject newPointer, continuePointer, creditsPointer;
+	public GameObject newPointer, continuePointer, creditsPointer, exitPointer;
 	// Current option
 	int current = 0;
 	// Already selected?
@@ -50,7 +50,8 @@ public class PadMenuScript : MonoBehaviour {
 			// Check for an input
 			switch (current) {
 			case 0:
-				// New game case
+                    // New game case
+                    PlayerPrefs.SetInt("CurrentLevel", 1);
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
 				selected = true;
@@ -74,6 +75,13 @@ public class PadMenuScript : MonoBehaviour {
 				this.gameObject.GetComponent<AudioSource> ().Play ();
 				selected = true;
 				StartCoroutine (LoadCredits ());
+				break;			
+			case 3:
+				// Exit case
+				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
+				this.gameObject.GetComponent<AudioSource> ().Play ();
+				selected = true;
+				StartCoroutine (ExitGame());
 				break;
 			}
 		}	
@@ -93,8 +101,8 @@ public class PadMenuScript : MonoBehaviour {
 					current++;
 				}
 				// Normalize it
-				if (current > 2)
-					current = 2;
+				if (current > 3)
+					current = 3;
 				if (current < 0)
 					current = 0;
 
@@ -104,16 +112,25 @@ public class PadMenuScript : MonoBehaviour {
 					newPointer.SetActive (true);
 					continuePointer.SetActive (false);
 					creditsPointer.SetActive (false);
+					exitPointer.SetActive (false);
 					break;
 				case 1:
 					newPointer.SetActive (false);
 					continuePointer.SetActive (true);
 					creditsPointer.SetActive (false);
+					exitPointer.SetActive (false);
 					break;
 				case 2:
 					newPointer.SetActive (false);
 					continuePointer.SetActive (false);
 					creditsPointer.SetActive (true);
+					exitPointer.SetActive (false);
+					break;
+				case 3:
+					newPointer.SetActive (false);
+					continuePointer.SetActive (false);
+					creditsPointer.SetActive (false);
+					exitPointer.SetActive (true);
 					break;
 				}
 			}
@@ -136,6 +153,12 @@ public class PadMenuScript : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (doorScript.SetOpen (false));
 		SceneManager.LoadScene ("Credits");
+	}
+
+	IEnumerator ExitGame()
+	{
+		yield return new WaitForSeconds (doorScript.SetOpen (false));
+		Application.Quit();
 	}
 
 }

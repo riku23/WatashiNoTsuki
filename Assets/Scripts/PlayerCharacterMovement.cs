@@ -59,20 +59,24 @@ public class PlayerCharacterMovement : MonoBehaviour
 	private float xOld;
 	private float xNew;
 	float originalGravity;
-
+    float curY;
+    float oldY;
 	private void Start()
 	{
 
 		canMove = true;
 		anim = GetComponent<Animator>();
-		rigidbody2d = GetComponent<Rigidbody2D>();
+
+        anim.SetInteger("Jump", 0);
+        oldY = transform.position.y;
+        rigidbody2d = GetComponent<Rigidbody2D>();
 		originalGravity = rigidbody2d.gravityScale;
 		boated = false;
 		canClimb = false;
 		#if UNITY_EDITOR
 		gameObject.AddComponent<InputHandler>();
 		#else
-		StartCoroutine(GiveControls());
+		StartCoroutine(GiveControlsAfterDelay());
 		#endif
 	}
 
@@ -124,8 +128,22 @@ public class PlayerCharacterMovement : MonoBehaviour
 		{
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
-       
-	}
+
+        if(!isOnGround && !isInWater && !canClimb )
+        {
+            curY = transform.position.y;
+            if (curY > oldY)
+            {
+                anim.SetInteger("Jump", 1);
+            } else if(curY < oldY)
+            {
+                anim.SetInteger("Jump", -1);
+            }
+            oldY = curY;
+        }
+        
+
+    }
 
 	private void FixedUpdate()
 	{
@@ -173,8 +191,11 @@ public class PlayerCharacterMovement : MonoBehaviour
 		if (isOnGround && /*!isJumping &&*/ !isInWater && !canClimb && gameObject.GetComponent<InputHandler>() != null && gameObject.GetComponent<InputHandler>().GetJumpInput)
 		{
 			rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
-			rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-		}
+            rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+ 
+            
+
+        }
 
 
     
@@ -226,7 +247,9 @@ public class PlayerCharacterMovement : MonoBehaviour
 			this.boat = null;
 			this.gameObject.transform.eulerAngles = Vector3.zero;
 		}
-		isOnVictoryPlatform = false;
+       
+
+        isOnVictoryPlatform = false;
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -236,7 +259,12 @@ public class PlayerCharacterMovement : MonoBehaviour
 			rigidbody2d.gravityScale = 0f;
 			canClimb = true;
 		}
-	}
+
+        if (other.gameObject.tag == "BoatLimit")
+        {
+            anim.SetBool("Row", true);
+        }
+    }
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
@@ -247,7 +275,12 @@ public class PlayerCharacterMovement : MonoBehaviour
 			rigidbody2d.gravityScale = originalGravity;
 			anim.SetBool("Climb", false);
 		}
-	}
+
+        if (other.gameObject.tag == "BoatLimit")
+        {
+            anim.SetBool("Row", false);
+        }
+    }
 
 
 

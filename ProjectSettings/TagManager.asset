@@ -7,6 +7,7 @@ TagManager:
   - Boat
   - Stairs
   - Victory Platform
+  - BoatLimit
   layers:
   - Default
   - TransparentFX
