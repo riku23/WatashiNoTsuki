@@ -25,8 +25,6 @@ public class CloudPlatformScript : MonoBehaviour
         //Debug.Log("COLLIDE");
         if (other.gameObject.tag == "Player")
         {
-           
-            Debug.Log("ATTENTO");
             Invoke("DestroyPlatform", timeForDestroy);
             Invoke("RegeneratePlatform", timeForRegenerate);
         }

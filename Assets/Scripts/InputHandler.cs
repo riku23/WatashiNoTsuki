@@ -42,7 +42,7 @@ public class InputHandler : MonoBehaviour
 	{
 		movementDirection = Input.GetAxisRaw("Horizontal");
 		climbDirection = Input.GetAxisRaw("Vertical");
-		jumpInput = Input.GetButtonDown("Jump");
+		jumpInput = Input.GetButton("Jump");
 	}
 
 	void FixedUpdate()

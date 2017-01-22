@@ -19,7 +19,7 @@ public class LogoScript : MonoBehaviour {
 	IEnumerator LoadNext()
 	{
 		yield return new WaitForSeconds (1.5f);
-		SceneManager.LoadScene ("Menu");
+		SceneManager.LoadScene ("Story1");
 	}
 
 }
