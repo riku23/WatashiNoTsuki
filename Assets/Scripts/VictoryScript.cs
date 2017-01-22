@@ -12,6 +12,13 @@ public class VictoryScript : MonoBehaviour
 
 	private bool isRightPosition;
 	private bool spawnedHearts;
+	private GameObject moon;
+	private OrbitScript orbitScript;
+
+	void Start() {
+		moon = GameObject.Find ("Moon");
+		orbitScript = moon.GetComponent<OrbitScript> ();
+	}
 
 	private void Update()
 	{
@@ -51,12 +58,14 @@ public class VictoryScript : MonoBehaviour
 		if (currentLevel < MAX_LEVELS)
 		{
 			PlayerPrefs.SetInt("CurrentLevel", currentLevel + 1);
+			orbitScript.SetInputEnabled (false);
 			yield return new WaitForSeconds(delayBeforeVictory);
 			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
 			SceneManager.LoadScene("Level" + (currentLevel + 1));
 		}
 		else
 		{
+			orbitScript.SetInputEnabled (false);
 			yield return new WaitForSeconds(delayBeforeVictory);
 			yield return new WaitForSeconds(GameObject.Find("Door").GetComponent<BeginDoorScript>().SetOpen(false));
 			SceneManager.LoadScene("Final");
