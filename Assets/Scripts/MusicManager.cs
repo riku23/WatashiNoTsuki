@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour {
 	// Sound gameobjects
@@ -29,7 +30,7 @@ public class MusicManager : MonoBehaviour {
 		if (waveSound.GetComponent<AudioSource>().isPlaying == false)
 			waveSound.GetComponent<AudioSource>().Play();
 		
-		if (Application.loadedLevelName == "Menu" || Application.loadedLevelName == "Credits") {
+		if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits") {
 			if (menuMusic.GetComponent<AudioSource> ().isPlaying == false)
 				menuMusic.GetComponent<AudioSource> ().Play();
 			if (menuMusic.GetComponent<AudioSource> ().isPlaying == true)

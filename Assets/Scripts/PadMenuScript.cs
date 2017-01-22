@@ -20,8 +20,8 @@ public class PadMenuScript : MonoBehaviour {
 	public GameObject newPointer, continuePointer, creditsPointer, exitPointer;
 	// Current option
 	int current = 0;
-	// Already selected?
-	bool selected = false;
+	// Is the user input enabled?
+	bool inputEnabled = false;
 
 	// Use this for initialization
 	void Start () {
@@ -43,18 +43,26 @@ public class PadMenuScript : MonoBehaviour {
 
 		// Start the control loop
 		StartCoroutine(ControlLoop());
+		// Start the unlock coortutine
+		StartCoroutine(EnableInputDelayed());
+
+		// Initialize the pointer
+		newPointer.SetActive (true);
+		continuePointer.SetActive (false);
+		creditsPointer.SetActive (false);
+		exitPointer.SetActive (false);
 	}
 		
 	void Update() {
-		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && !selected) {
+		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && inputEnabled) {
 			// Check for an input
 			switch (current) {
 			case 0:
                     // New game case
-                    PlayerPrefs.SetInt("CurrentLevel", 1);
+				PlayerPrefs.SetInt("CurrentLevel", 1);
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
-				selected = true;
+				inputEnabled = false;
 				StartCoroutine (LoadNewGame ());
 				break;
 			case 1:
@@ -62,7 +70,7 @@ public class PadMenuScript : MonoBehaviour {
 				if (continueEnabled) {
 					this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 					this.gameObject.GetComponent<AudioSource> ().Play ();
-					GameObject.Find ("New Game").GetComponent<Collider2D> ().enabled = false;
+					inputEnabled = false;
 					StartCoroutine (LoadContinue ());
 				} else {
 					this.gameObject.GetComponent<AudioSource> ().pitch = disabledPitch;
@@ -73,14 +81,14 @@ public class PadMenuScript : MonoBehaviour {
 				// Credits case
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
-				selected = true;
+				inputEnabled = false;
 				StartCoroutine (LoadCredits ());
 				break;			
 			case 3:
 				// Exit case
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
-				selected = true;
+				inputEnabled = false;
 				StartCoroutine (ExitGame());
 				break;
 			}
@@ -92,7 +100,7 @@ public class PadMenuScript : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.1f);
 
-			if (!selected) {
+			if (inputEnabled) {
 				int input = (int)Input.GetAxisRaw ("Vertical");
 				// Update current
 				if (input == 1) {
@@ -161,4 +169,8 @@ public class PadMenuScript : MonoBehaviour {
 		Application.Quit();
 	}
 
+	IEnumerator EnableInputDelayed() {
+		yield return new WaitForSeconds (doorScript.GetOpeningTime ());
+		inputEnabled = true;
+	}
 }

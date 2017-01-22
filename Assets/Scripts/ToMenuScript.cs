@@ -19,7 +19,7 @@ public class ToMenuScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!(Application.loadedLevelName == "Menu" || Application.loadedLevelName == "Credits") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && !exited) {
+		if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && !exited) {
 			exited = true;
 			StartCoroutine (LoadNext ());
 		}
