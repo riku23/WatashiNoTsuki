@@ -11,7 +11,7 @@ public class BeginDoorScript : MonoBehaviour
 	// Speed
 	public float speed = 2f;
 	// x value of target position
-	public float xTarget = 15f;
+	public float xTarget = 75f;
 	// Target position
 	Vector3 leftTarget, rigthTarget;
 	// Starting position
@@ -67,7 +67,10 @@ public class BeginDoorScript : MonoBehaviour
 
 	public float GetOpeningTime()
 	{
-		return Mathf.Abs(rigthStart.x - rigthTarget.x) / speed;
+		if (rigthStart.x == 0 || rigthTarget.x == 0)
+			return Mathf.Abs (23.275f - 75f) / speed;
+		else
+			return Mathf.Abs(rigthStart.x - rigthTarget.x) / speed;
 	}
 
 }

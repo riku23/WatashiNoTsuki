@@ -8,19 +8,21 @@ public class ToMenuScript : MonoBehaviour {
 	GameObject door;
 	// Door script
 	BeginDoorScript doorScript;
-	// Has been exited?
-	bool exited = false;
+	// Is input enabled?
+	bool inputEnabled = false;
 
 	// Use this for initialization
 	void Start () {
 		door = GameObject.Find("Door");
 		doorScript = door.GetComponent<BeginDoorScript>();	
+		// Start the unlock coortutine
+		StartCoroutine(EnableInputDelayed());
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && !exited) {
-			exited = true;
+		if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && inputEnabled) {
+			inputEnabled = false;
 			StartCoroutine (LoadNext ());
 		}
 	}
@@ -29,6 +31,11 @@ public class ToMenuScript : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (doorScript.SetOpen (false));
 		SceneManager.LoadScene ("Menu");
+	}
+
+	IEnumerator EnableInputDelayed() {
+		yield return new WaitForSeconds (doorScript.GetOpeningTime ());
+		inputEnabled = true;
 	}
 
 }
