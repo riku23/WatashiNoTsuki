@@ -21,7 +21,7 @@ public class ToMenuScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && inputEnabled) {
+		if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits" || SceneManager.GetActiveScene().name == "Story1" || SceneManager.GetActiveScene().name == "Story2") && (Input.GetKeyDown (KeyCode.JoystickButton7) || Input.GetKeyDown (KeyCode.Escape)) && inputEnabled) {
 			inputEnabled = false;
 			StartCoroutine (LoadNext ());
 		}
