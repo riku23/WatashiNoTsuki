@@ -46,7 +46,7 @@ public class PadMenuScript : MonoBehaviour {
 	}
 		
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) {
+		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && !selected) {
 			// Check for an input
 			switch (current) {
 			case 0:
@@ -70,7 +70,7 @@ public class PadMenuScript : MonoBehaviour {
 				}
 				break;
 			case 2:
-				// Continue case
+				// Credits case
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
 				selected = true;
