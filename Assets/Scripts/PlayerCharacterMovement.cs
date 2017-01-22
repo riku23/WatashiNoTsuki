@@ -88,7 +88,6 @@ public class PlayerCharacterMovement : MonoBehaviour
 	{
 		float delay = GameObject.Find("Door").GetComponent<BeginDoorScript>().GetOpeningTime();
 
-		Debug.Log ("Delay: " + delay);
 		yield return new WaitForSeconds(delay);
 		gameObject.AddComponent<InputHandler>();
 	}
