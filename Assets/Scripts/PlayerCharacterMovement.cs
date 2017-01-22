@@ -129,7 +129,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
 
-        if(!isOnGround && !isInWater && !canClimb)
+        if(!isOnGround && !isInWater && !canClimb )
         {
             curY = transform.position.y;
             if (curY > oldY)

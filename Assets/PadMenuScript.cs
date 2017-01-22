@@ -50,7 +50,8 @@ public class PadMenuScript : MonoBehaviour {
 			// Check for an input
 			switch (current) {
 			case 0:
-				// New game case
+                    // New game case
+                    PlayerPrefs.SetInt("CurrentLevel", 1);
 				this.gameObject.GetComponent<AudioSource> ().pitch = pitch;
 				this.gameObject.GetComponent<AudioSource> ().Play ();
 				selected = true;
