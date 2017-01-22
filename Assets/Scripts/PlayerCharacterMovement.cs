@@ -98,7 +98,8 @@ public class PlayerCharacterMovement : MonoBehaviour
 
 		if (isOnGround)
 		{
-			canMove = true;
+            
+            canMove = true;
 		}
 		if (gameObject.GetComponent<InputHandler>() != null)
 		{
