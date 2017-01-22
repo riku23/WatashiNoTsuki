@@ -73,16 +73,22 @@ public class PlayerCharacterMovement : MonoBehaviour
 		originalGravity = rigidbody2d.gravityScale;
 		boated = false;
 		canClimb = false;
-		#if UNITY_EDITOR
+
+		/*#if UNITY_EDITOR
 		gameObject.AddComponent<InputHandler>();
 		#else
 		StartCoroutine(GiveControlsAfterDelay());
-		#endif
+		#endif*/
+
+		StartCoroutine(GiveControlsAfterDelay());
+
 	}
 
 	private IEnumerator GiveControlsAfterDelay()
 	{
 		float delay = GameObject.Find("Door").GetComponent<BeginDoorScript>().GetOpeningTime();
+
+		Debug.Log ("Delay: " + delay);
 		yield return new WaitForSeconds(delay);
 		gameObject.AddComponent<InputHandler>();
 	}
