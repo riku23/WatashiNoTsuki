@@ -459,6 +459,11 @@ Prefab:
       propertyPath: delayBeforeVictory
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011389353336, guid: 9f42e47965192904d9ce4e89f9c2355a,
+        type: 2}
+      propertyPath: t
+      value: 1.58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f42e47965192904d9ce4e89f9c2355a, type: 2}
   m_IsPrefabParent: 0
