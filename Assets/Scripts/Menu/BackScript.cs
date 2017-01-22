@@ -8,19 +8,21 @@ public class BackScript : MonoBehaviour {
 	GameObject door;
 	// Door script
 	BeginDoorScript doorScript;
-	// Has been selected?
-	bool selected = false;
+	// Is input enabled?
+	bool inputEnabled = false;
 
 	// Use this for initialization
 	void Start () {
 		door = GameObject.Find("Door");
-		doorScript = door.GetComponent<BeginDoorScript>();	
+		doorScript = door.GetComponent<BeginDoorScript>();
+		// Start the unlock coortutine
+		StartCoroutine(EnableInputDelayed());
 	}
 	
 	void Update()
 	{
-		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && !selected)  {
-			selected = true;
+		if ((Input.GetKeyDown (KeyCode.JoystickButton0) || Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.A)) && inputEnabled)  {
+			inputEnabled = false;
 			this.gameObject.GetComponent<AudioSource> ().Play ();
 			StartCoroutine (LoadNext ());
 		}
@@ -30,6 +32,11 @@ public class BackScript : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (doorScript.SetOpen (false));
 		SceneManager.LoadScene ("Menu");
+	}
+
+	IEnumerator EnableInputDelayed() {
+		yield return new WaitForSeconds (doorScript.GetOpeningTime ());
+		inputEnabled = true;
 	}
 
 }
